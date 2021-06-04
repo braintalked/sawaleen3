@@ -1,0 +1,94 @@
+
+
+/*  Start of Grey/Small Loading Animation */
+.smallLoadingAnimation
+{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    /* position: fixed;  */
+    z-index: 99;
+    justify-content: center;
+    align-items: center;
+    background-color: transparent;  
+}
+.smallLoadingAnimation.hidden
+{
+  animation: fadeOut 1s;
+  animation-fill-mode: forwards;
+}
+@keyframes fadeOut
+{
+  100%{
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+@keyframes left {
+    0% {
+      transform: translateX(100%);
+    }
+  
+    50% {
+      transform: translateX(-10%);
+    }
+  
+    100% {
+      transform: translateX(100%);
+    }
+  }
+  
+  @keyframes right {
+    0% {
+      transform: translateX(-100%);
+    }
+  
+    50% {
+      transform: translateX(10%);
+    }
+  
+    100% {
+      transform: translateX(-100%);
+    }
+  }
+  @keyframes center {
+    0%,
+    100% {
+      transform: scale(0.5);
+    }
+  
+    50% {
+      transform: scale(1);
+    }
+  }
+  .dotsSmall {
+    width: 35px;
+    height: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  
+  .dotSmall {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: grey;
+  }
+  
+  .dotSmall:nth-child(1) {
+    transform: translateX(100%);
+    background-color: grey; 
+    animation: left 1s ease alternate infinite;
+  }
+  
+  .dotSmall:nth-child(2) {
+    animation: center 1s ease infinite;
+  }
+  
+  .dotSmall:nth-child(3) {
+    transform: translateX(-100%);
+    background-color: grey;
+    animation: right 1s ease alternate infinite;
+  }
+/*  End of Grey/Small Loading Animation */

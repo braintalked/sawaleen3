@@ -1,0 +1,192 @@
+
+body
+ {
+    overflow-x: hidden;
+    box-sizing: border-box;
+    width: auto;
+    color: black;
+    font-family: 'Montserrat', sans-serif;
+
+}
+#signupHyperlink
+{
+  color: #fff;
+  text-decoration: none;
+}
+.signup
+{
+  margin-left: 5px;
+  color: white;
+}
+/* START OF ARTEFFECT  */
+
+@import url('https://fonts.googleapis.com/css?family=Montserrat:900i&display=swap');
+
+.artEffect{
+  background:white;
+	font-family: 'Montserrat', sans-serif;
+}
+
+.artEffect{
+  top: 50%;
+  left: 50%;
+  font-size:30px;
+	letter-spacing:0.1em;
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: black;
+  text-shadow:
+						8px 8px #ff1f8f,
+						20px 20px orange;
+}
+/* END OF ARTEFFECT  */
+
+@media (max-width: 767.98px)
+{
+  .dropdown-menu
+  {
+    text-align: left;
+  }
+  ul.bottomNavBar {
+       list-style-type: none;
+       margin: 0;
+       padding: 0;
+       overflow: hidden;
+       background-color: #892cdc;
+       margin-top: 70px;
+       width: 100%;
+       display: flex;
+       justify-content: center;
+     }
+
+     ul.bottomNavBar li button {
+       display: block;
+       color: #fff;
+       text-align: center;
+       padding: 2px 4px;
+       text-decoration: none;
+       background-color: #892cdc;
+       border: none;
+     }
+
+     ul.bottomNavBar li button:hover {
+       text-decoration: none;
+       color: #fff;
+       background-color: #52057b;
+     }
+     .content
+     {
+       height: 500px;
+       width: 2500px;
+       background-color: #f4f4f2;
+       margin-top: 2px;
+       margin-right: 2px;
+       margin-left: 2px;
+       display: flex;
+       justify-content: center;
+     }
+}
+/* /////////////// START MOBILE PHONE STYLES ////////////// */
+@media (min-width: 767.99px)
+{
+  .dropdown-menu
+  {
+    text-align: right;
+  }
+  .bottomNavBar
+  {
+    display: none;
+  }
+  /* ////////////START SIDEBAR STYLES/////////////// */
+  .feather {
+    width: 16px;
+    height: 16px;
+    vertical-align: text-bottom;
+  }
+
+  /*
+   * Sidebar
+   */
+
+  .sidebar {
+    text-align: right;
+    position: fixed;
+    top: 70px;
+    bottom: 0;
+    right: 0;
+    z-index: 100; /* Behind the navbar */
+    padding: 0;
+  }
+
+  .sidebar-sticky {
+    position: -webkit-sticky;
+    position: sticky;
+    top: 48px; /* Height of navbar */
+    height: calc(100vh - 48px);
+    padding-top: .5rem;
+    overflow-x: hidden;
+    overflow-y: auto; /* Scrollable contents if viewport is shorter than content. */
+    background-color: #892cdc;
+    width: 220px;
+    }
+
+  .sidebar button {
+    font-weight: 500;
+    color: white;
+    display: inline-block;
+    width: 165px;
+    margin-left: 10px;
+    background-color: #892cdc;
+    text-align: right;
+    width: 90%;
+    }
+  .sidebar button:hover{
+    background-color: #52057b;
+  }
+  .sidebar button .feather {
+    margin-right: 4px;
+    color: #000;
+  }
+
+  .sidebar .nav-link.active {
+  }
+
+  .sidebar-heading {
+    font-size: .75rem;
+    text-transform: uppercase;
+  }
+  /*
+   * Navbar
+   */
+  .navbar .form-control {
+    padding: .75rem 1rem;
+    border-width: 0;
+    border-radius: 0;
+  }
+
+  .form-control-dark {
+    color: #fff;
+    background-color: #892cdc;
+  }
+
+  .form-control-dark:focus {
+    border-color: transparent;
+  }
+  /*
+   * Utilities
+   */
+  .border-top { border-top: 1px solid #e5e5e5; }
+  .border-bottom { border-bottom: 1x solid #e5e5e5; }
+  /* ////////////END SIDEBAR STYLES/////////////// */
+
+  .content
+  {
+    height: 500px;
+    width: 2500px;
+    background-color: #f4f4f2;
+    margin-top: 74px;
+    margin-right: 223px;
+    margin-left: 2px;
+    display: flex;
+    justify-content: center;
+  }
+}

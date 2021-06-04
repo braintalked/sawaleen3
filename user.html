@@ -1,0 +1,673 @@
+<!--
+=========================================================
+* Material Dashboard Dark Edition - v2.1.0
+=========================================================
+
+* Product Page: https://www.creative-tim.com/product/material-dashboard-dark
+* Copyright 2019 Creative Tim (http://www.creative-tim.com)
+
+* Coded by www.creative-tim.com
+
+=========================================================
+
+* The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- Bootstrap CDN -->
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+    integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+    crossorigin="anonymous"></script>
+  <!-- Bootstrap RTL CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.rtl.min.css"
+    integrity="sha384-jHiSqEim4+W1UCvv8kTcMbtCZlRF8MxbgKdfpvncia8gdN1UImBnhTpKtufREzv7" crossorigin="anonymous">
+  <!-- Bootstrap css & javascript links -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+    integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+  <!-- Small Animation CSS Styles -->
+  <link rel="stylesheet" href="smallAnimationStyles.css">
+  <!-- <link rel="stylesheet" href="styles.css"> -->
+  <link rel="stylesheet" href="nodemodules/sweetalert2/dist/sweetalert2.css">
+  <!-- Bootstrap css & javascript links -->
+  <!-- Font awesome Icons -->
+  <script src="https://kit.fontawesome.com/ab5937a0f1.js" crossorigin="anonymous"></script>
+  <!-- The core Firebase JS SDK is always required and must be listed first -->
+  <script src="https://www.gstatic.com/firebasejs/8.6.4/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.6.4/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.6.2/firebase-firestore.js"></script>
+  <!-- Firebase Storage CDN -->
+  <script src="https://www.gstatic.com/firebasejs/8.6.4/firebase-storage.js"></script>
+
+  <script>
+    // Your web app's Firebase configuration
+    var firebaseConfig =
+    {
+      apiKey: "AIzaSyDjsKQlqNRWOWD6Qw6tklqtP03BtUW_lqw",
+      authDomain: "groceryapp-b381a.firebaseapp.com",
+      databaseURL: "https://groceryapp-b381a.firebaseio.com",
+      projectId: "groceryapp-b381a",
+      storageBucket: "groceryapp-b381a.appspot.com",
+      messagingSenderId: "1092044916930",
+      appId: "1:1092044916930:web:b3493c5ddfdef83633d35b",
+      storageBucket: 'gs://groceryapp-b381a.appspot.com'
+    };
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+    var db = firebase.firestore();
+
+    var photoSource = "";
+    function selectImage(e){
+      console.log("got file");
+      // console.log("file name is: "+file.name);
+      let file = e.target.file[0];
+
+      // let file = document.getElementById('#saloonPhoto');
+      // photoSource = file.name;
+      // console.log("new path is: "+photoSource);
+    }
+
+  </script>
+
+  <meta charset="utf-8" />
+  <link rel="apple-touch-icon" sizes="76x76" href="./assets/img/apple-icon.png">
+  <link rel="icon" type="image/png" href="./assets/img/favicon.png">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <title>
+  </title>
+  <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no'
+    name='viewport' />
+  <!--     Fonts and icons     -->
+  <link rel="stylesheet" type="text/css"
+    href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons" />
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
+  <!-- CSS Files -->
+  <link href="./assets/css/material-dashboard.css?v=2.1.0" rel="stylesheet" />
+  <!-- CSS Just for demo purpose, don't include it in your project -->
+  <link href="./assets/demo/demo.css" rel="stylesheet" />
+
+  <style>
+    body{
+      background-color: white !important;
+      color: black !important;
+    }
+    a{
+      color: black !important;
+    }
+    i{
+      color: black !important;
+    }
+    .card{
+      background-color: #deeeea !important;
+    }
+    .card-header{
+      background: linear-gradient(60deg, #097a9c, #39a9cb) !important;
+    }
+    .btn{
+      /* background-color: #0b579e!important; */
+      background: linear-gradient(60deg, #0b579e, #3984ca) !important;
+
+      color: white !important;
+    }
+    table{
+      border: none !important;
+    }
+    tbody{
+      border: blank !important;
+      color: black !important;
+    }
+    th{
+      border: solid 1px black !important;
+      background-color: #c2f8eb !important;
+    }
+    td{
+      border: solid 1px black !important;
+    }
+    .nav-item>.nav-link>p{
+      /* background-color: white !important; */
+      color: white !important;
+    }
+    #saloonPhoto{
+      color: black !important;
+    }
+    .form-input>input[type=text]{
+      color: black !important;
+    }
+    /* #saveSaloonProfileServices
+    {
+      background: red !important;
+    } */
+  </style>
+
+</head>
+
+<body class="dark-edition">
+  <div class="wrapper">
+    <div class="sidebar" data-color="purple" data-background-color="grey" data-image="./assets/img/sidebar-1.jpg">
+      <!--
+        Tip 1: You can change the color of the sidebar using: data-color="purple | azure | green | orange | danger"
+
+        Tip 2: you can also add an image using data-image tag
+    -->
+
+      <div class="sidebar-wrapper">
+        <ul class="nav">
+          <!-- <li class="nav-item  ">
+            <a class="nav-link" href="./index.html">
+              <i class="material-icons">dashboard</i>
+              <p>Dashboard</p>
+            </a>
+          </li> -->
+          <li class="nav-item active ">
+            <a class="nav-link" href="./user.html">
+              <i class="material-icons">person</i>
+              <p>User Profile</p>
+            </a>
+          </li>
+          <li class="nav-item ">
+            <a class="nav-link" href="./clients.html">
+              <i class="material-icons">content_paste</i>
+              <p>Clients</p>
+            </a>
+          </li>
+          <!-- <li class="nav-item active-pro ">
+                <a class="nav-link" href="./upgrade.html">
+                    <i class="material-icons">unarchive</i>
+                    <p>Upgrade to PRO</p>
+                </a>
+            </li> -->
+        </ul>
+      </div>
+    </div>
+    <div class="main-panel">
+      <!-- START Navbar -->
+      <nav class="navbar navbar-expand-lg navbar-transparent navbar-absolute fixed-top " id="navigation-example">
+        <div class="container-fluid">
+          <div class="navbar-wrapper">
+            <a id="userProfileTitle" class="navbar-brand" href="javascript:void(0)">User Profile</a>
+          </div>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" aria-controls="navigation-index"
+            aria-expanded="false" aria-label="Toggle navigation" data-target="#navigation-example">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="navbar-toggler-icon icon-bar"></span>
+            <span class="navbar-toggler-icon icon-bar"></span>
+            <span class="navbar-toggler-icon icon-bar"></span>
+          </button>
+          <div class="collapse navbar-collapse justify-content-end">
+            <ul class="navbar-nav">
+              <!-- <li class="nav-item">
+                <a class="nav-link" href="javascript:void(0)">
+                  <i class="material-icons">dashboard</i>
+                  <p class="d-lg-none d-md-block">
+                    Stats
+                  </p>
+                </a>
+              </li> -->
+              <li class="nav-item">
+                <a class="nav-link" href="authorised/home.html">
+                  <i class="fas fa-home fa-2x"></i>
+                  <p class="d-lg-none d-md-block">
+                    Home
+                  </p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="" onclick='return logOutOfPage()'>
+                  <i class="fas fa-sign-out-alt fa-2x"></i>
+                  <p class="d-lg-none d-md-block">
+                    Logout
+                  </p>
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+      <!-- End Navbar -->
+      <div class="content">
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col-md-8">
+              <div class="card">
+                <div class="card-header card-header-primary">
+                  <h4 class="card-title">My Services</h4>
+                </div>
+                <div class="card-body">
+                  <form>
+                    <div class="row">
+                      <div class="col-md-6">
+                        <div>
+                        </div>
+                      </div>
+                      <div class="col-md-6">
+                        <div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-md-12">
+                        <div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-md-12">
+
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-xs-5 col-sm-5 col-md-5 col-lg-5">
+                        <select id="serviceDescription" style=""
+                          class="form-select form-select-lg mb-3" aria-label=".form-select-lg example">
+                          <option selected> Service </option>
+                          <option value="1"> قصشعر وعناية كاملةبالشعر من تغسيل وتنشيف و صيغ و كل مايحتاجه شعرك من عناية
+                            يستحقهاوكل هذا بسعر بسيط وفي متناول اليد </option>
+                          <option value="2">غسيل وجه</option>
+                          <option value="3">قص لحية</option>
+                        </select>
+                      </div>
+                      <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+                        <select id="servicePrice" style="" class="form-select form-select-lg mb-3"
+                          aria-label=".form-select-lg example">
+                          <option selected> Price </option> 
+                          <option value="1">٥ ريال</option>
+                          <option value="2">١٠ ريال</option>
+                          <option value="3">١٥ ريال</option>
+                        </select>
+                      </div>
+                      <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3" style="text-align: center">
+                        <button id="addServiceButton" type="button" class="btn btn-primary">Add</button>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-md-12">
+                        <table style="width:100%;">
+
+                          <tr id="appendServicesAfterThisRow">
+
+                            <th style="text-align: center; font-size: 14px;">Service</th>
+                            <th style="text-align: center; font-size: 14px;">Price</th>
+
+                          </tr>
+
+                        </table>
+                        <div>
+                          <!-- Start loading animation -->
+                          <div class="smallLoadingAnimation">
+                            <div class="dotsSmall one">
+                              <div class="dotSmall"></div>
+                              <div class="dotSmall"></div>
+                              <div class="dotSmall"></div>
+                            </div>
+                          </div>
+                          <!-- End loading  animation  -->
+                        </div>
+                      </div>
+                      <div class="col-md-3">
+                        <div>
+                        </div>
+                      </div>
+                      <div class="col-md-4">
+                        <div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="clearfix"></div>
+                  </form>
+                  <div style="text-align: center; color: black">
+                    <button style="opacity: 0.5;" id="saveSaloonProfileServices" type="button"
+                      style="color: black" class="btn btn-warning disabled">Save</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="card card-profile">
+                <div class="card-avatar">
+                  <a href="">
+                    <img id="salonProfileImage" class="img" src="images/barberAvatar.png" />
+                  </a>
+                </div>
+
+                <div class="card-body">
+                  <!-- start of saloon image upload html code -->
+                  <div class="">
+                    <input type="file" id="selectProfileImage" onchange="readURL(this);" name="profile_image"
+                      accept="image/png, image/jpeg" style="color: black;">
+                  </div>
+                  <button id="uploadProfileImage" type="button" class="btn btn-primary">Upload Photo</button>
+                  <!-- end of saloon image upload html code -->
+                  <div class="row">
+                    <div class="col-md-12">
+
+                        <p id="salonName" style="color: black; border: solid 1px black; margin-top: 5px"></p>
+                        <div style="color: black; border: solid 1px black"><span id="salonProvince"></span><span style="margin-left: 5px; margin-right: 5px">،</span><span id="salonCity"></span><img src="images/locationIcon.png" alt=""></div>
+                      </div>
+  
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <footer class="footer">
+        <div class="container-fluid">
+          <nav class="float-left">
+            <ul>
+              <li>
+                <a href="">
+                  Twitter
+                </a>
+              </li>
+              <li>
+                <a href="">
+                  Instagram
+                </a>
+              </li>
+            </ul>
+          </nav>
+        </div>
+      </footer>
+    </div>
+  </div>
+</body>
+
+<!--   Core JS Files   -->
+<script src="salonProfileImageHandler.js"></script>
+<script src="logout.js"></script>
+<script src="nodemodules/sweetalert2/dist/sweetalert2.all.js"></script>
+<script src="addNewServiceToSaloonDashboard.js" type="text/javascript"></script>
+<script src="./assets/js/core/jquery.min.js"></script>
+<script src="./assets/js/core/popper.min.js"></script>
+<script src="./assets/js/core/bootstrap-material-design.min.js"></script>
+<script src="https://unpkg.com/default-passive-events"></script>
+<script src="./assets/js/plugins/perfect-scrollbar.jquery.min.js"></script>
+<!-- Place this tag in your head or just before your close body tag. -->
+<script async defer src="https://buttons.github.io/buttons.js"></script>
+<!-- Chartist JS -->
+<script src="./assets/js/plugins/chartist.min.js"></script>
+<!--  Notifications Plugin    -->
+<script src="./assets/js/plugins/bootstrap-notify.js"></script>
+<!-- Control Center for Material Dashboard: parallax effects, scripts for the example pages etc -->
+<script src="./assets/js/material-dashboard.js?v=2.1.0"></script>
+<!-- Material Dashboard DEMO methods, don't include it in your project! -->
+<script src="./assets/demo/demo.js"></script>
+<script type="text/javascript">
+  firebase.auth().onAuthStateChanged((user) => {
+    if (user) {
+      // User is signed in, see docs for a list of available properties
+      // https://firebase.google.com/docs/reference/js/firebase.User
+      var userType = localStorage.getItem("userType");
+
+      // if (firebase.auth().currentUser.metadata.creationTime === firebase.auth().currentUser.metadata.lastSignInTime)
+      if (userType == "newUser") {
+        console.log("////// " + userType + " //////");
+
+        let newSaloon = {}
+        let newSaloonName = localStorage.getItem("newSaloonName");
+        let newSaloonEmail = localStorage.getItem("newSaloonEmail");
+        let newSaloonProvince = localStorage.getItem("newSaloonProvince");
+        let newSaloonCity = localStorage.getItem("newSaloonCity");
+        let salonProfileImage = firebase.storage().ref('users/' + firebase.auth().currentUser.uid + '/profile.jpg').getDownloadURL().then(imgUrl =>{
+            document.getElementById("salonProfileImage").src = imgUrl;
+        });
+        // let saloonEmail = localStorage.get("saloonEmail");
+
+        let newSaloonID = user.uid;
+        localStorage.setItem("saloonID", newSaloonID);
+        let newSaloonProfile = {};
+        let key = newSaloonID;
+        if (newSaloonName != "" && newSaloonEmail != "" && newSaloonProvince != "") {
+          document.getElementById("userProfileTitle").innerText = newSaloonName + " Profile";
+          console.log(newSaloonID + " is your user id");
+          console.log(newSaloonName + " is your saloon name");
+          console.log(newSaloonEmail + " is your saloon email");
+          console.log(newSaloonProvince + " is your province");
+          console.log(newSaloonCity + " is your city");
+
+          document.getElementById("salonName").innerText = newSaloonName;
+          document.getElementById("salonProvince").innerText = newSaloonProvince;
+          document.getElementById("salonCity").innerText = newSaloonCity;
+
+          // Add a new user/saloon to database
+          newSaloonProfile = { saloonID: newSaloonID, saloonName: newSaloonName, saloonEmail: newSaloonEmail, saloonProvince: newSaloonProvince, saloonCity: newSaloonCity, clients: { "saloonID": newSaloonID } };
+          newSaloon[key] = newSaloonProfile;
+          db.collection('saloons').doc('Saloon Profiles').set(newSaloon, { merge: true }).then(() => {
+            console.log("Saloon added to database successfully written!");
+          })
+            .catch((error) => {
+              console.error("Error adding saloon to database: ", error);
+            });
+          // localStorage.setItem("userType", "OldUser");
+        }
+      }
+
+      else {
+        // for current saloons log in
+    
+        console.log("////// " + userType + " //////");
+
+        let saloonName = localStorage.getItem("saloonName");
+        let saloonEmail = localStorage.getItem("saloonEmail");
+        let saloonID = localStorage.getItem("saloonID");
+        let saloonProvince = localStorage.getItem("saloonProvince");
+        let saloonCity = localStorage.getItem("saloonCity");
+        let saloonServices = localStorage.getItem("saloonServices");
+        let saloonClients = localStorage.getItem("saloonClients");
+        let servicesIsEmpty = localStorage.getItem("servicesIsEmpty");
+        let clientsIsEmpty = localStorage.getItem("clientsIsEmpty");
+        let salonProfileImage = firebase.storage().ref('users/' + firebase.auth().currentUser.uid + '/profile.jpg').getDownloadURL().then(imgUrl =>{
+            document.getElementById("salonProfileImage").src = imgUrl;
+        });
+
+        //services
+        let parsedSaloonServices = []
+
+        if (servicesIsEmpty == "false") {
+          parsedSaloonServices = JSON.parse(saloonServices);
+        }
+        let serviceCollection = ""
+        let i = 0;
+        for (var key in parsedSaloonServices) {
+          i = i + 1;
+          serviceCollection = parsedSaloonServices[key]
+        }
+
+        //My current clients
+        let parsedSaloonClients = []
+
+        if (clientsIsEmpty == "false") {
+          parsedSaloonClients = JSON.parse(saloonClients);
+        }
+        let clientText = ""
+        let j = 0;
+        for (var key in parsedSaloonClients) {
+          j = j + 1;
+          clientText = parsedSaloonClients[key]
+          console.log(clientText);
+        }
+
+        document.getElementById("userProfileTitle").innerText = saloonName + " Profile";
+        document.getElementById("salonName").innerText = saloonName;
+        document.getElementById("salonProvince").innerText = saloonProvince;
+        document.getElementById("salonCity").innerText = saloonCity;
+
+        console.log(saloonName + ", email is:" + saloonEmail + ", " + saloonID + ", " + saloonProvince + ", " + saloonCity)
+
+      }
+
+    } else {
+      // User is signed out
+      // window.location.href = "index.html";
+      window.location.replace("index.html");
+    }
+  });
+</script>
+<script>
+  $(document).ready(function () {
+    $().ready(function () {
+
+
+      $sidebar = $('.sidebar');
+
+      $sidebar_img_container = $sidebar.find('.sidebar-background');
+
+      $full_page = $('.full-page');
+
+      $sidebar_responsive = $('body > .navbar-collapse');
+
+      window_width = $(window).width();
+
+      $('.fixed-plugin a').click(function (event) {
+        // Alex if we click on switch, stop propagation of the event, so the dropdown will not be hide, otherwise we set the  section active
+        if ($(this).hasClass('switch-trigger')) {
+          if (event.stopPropagation) {
+            event.stopPropagation();
+          } else if (window.event) {
+            window.event.cancelBubble = true;
+          }
+        }
+      });
+
+      $('.fixed-plugin .active-color span').click(function () {
+        $full_page_background = $('.full-page-background');
+
+        $(this).siblings().removeClass('active');
+        $(this).addClass('active');
+
+        var new_color = $(this).data('color');
+
+        if ($sidebar.length != 0) {
+          $sidebar.attr('data-color', new_color);
+        }
+
+        if ($full_page.length != 0) {
+          $full_page.attr('filter-color', new_color);
+        }
+
+        if ($sidebar_responsive.length != 0) {
+          $sidebar_responsive.attr('data-color', new_color);
+        }
+      });
+
+      $('.fixed-plugin .background-color .badge').click(function () {
+        $(this).siblings().removeClass('active');
+        $(this).addClass('active');
+
+        var new_color = $(this).data('background-color');
+
+        if ($sidebar.length != 0) {
+          $sidebar.attr('data-background-color', new_color);
+        }
+      });
+
+      $('.fixed-plugin .img-holder').click(function () {
+        $full_page_background = $('.full-page-background');
+
+        $(this).parent('li').siblings().removeClass('active');
+        $(this).parent('li').addClass('active');
+
+
+        var new_image = $(this).find("img").attr('src');
+
+        if ($sidebar_img_container.length != 0 && $('.switch-sidebar-image input:checked').length != 0) {
+          $sidebar_img_container.fadeOut('fast', function () {
+            $sidebar_img_container.css('background-image', 'url("' + new_image + '")');
+            $sidebar_img_container.fadeIn('fast');
+          });
+        }
+
+        if ($full_page_background.length != 0 && $('.switch-sidebar-image input:checked').length != 0) {
+          var new_image_full_page = $('.fixed-plugin li.active .img-holder').find('img').data('src');
+
+          $full_page_background.fadeOut('fast', function () {
+            $full_page_background.css('background-image', 'url("' + new_image_full_page + '")');
+            $full_page_background.fadeIn('fast');
+          });
+        }
+
+        if ($('.switch-sidebar-image input:checked').length == 0) {
+          var new_image = $('.fixed-plugin li.active .img-holder').find("img").attr('src');
+          var new_image_full_page = $('.fixed-plugin li.active .img-holder').find('img').data('src');
+
+          $sidebar_img_container.css('background-image', 'url("' + new_image + '")');
+          $full_page_background.css('background-image', 'url("' + new_image_full_page + '")');
+        }
+
+        if ($sidebar_responsive.length != 0) {
+          $sidebar_responsive.css('background-image', 'url("' + new_image + '")');
+        }
+      });
+
+      $('.switch-sidebar-image input').change(function () {
+        $full_page_background = $('.full-page-background');
+
+        $input = $(this);
+
+        if ($input.is(':checked')) {
+          if ($sidebar_img_container.length != 0) {
+            $sidebar_img_container.fadeIn('fast');
+            $sidebar.attr('data-image', '#');
+          }
+
+          if ($full_page_background.length != 0) {
+            $full_page_background.fadeIn('fast');
+            $full_page.attr('data-image', '#');
+          }
+
+          background_image = true;
+        } else {
+          if ($sidebar_img_container.length != 0) {
+            $sidebar.removeAttr('data-image');
+            $sidebar_img_container.fadeOut('fast');
+          }
+
+          if ($full_page_background.length != 0) {
+            $full_page.removeAttr('data-image', '#');
+            $full_page_background.fadeOut('fast');
+          }
+
+          background_image = false;
+        }
+      });
+
+      $('.switch-sidebar-mini input').change(function () {
+        $body = $('body');
+
+        $input = $(this);
+
+        if (md.misc.sidebar_mini_active == true) {
+          $('body').removeClass('sidebar-mini');
+          md.misc.sidebar_mini_active = false;
+
+          $('.sidebar .sidebar-wrapper, .main-panel').perfectScrollbar();
+
+        } else {
+
+          $('.sidebar .sidebar-wrapper, .main-panel').perfectScrollbar('destroy');
+
+          setTimeout(function () {
+            $('body').addClass('sidebar-mini');
+
+            md.misc.sidebar_mini_active = true;
+          }, 300);
+        }
+
+        // we simulate the window Resize so the charts will get updated in realtime.
+        var simulateWindowResize = setInterval(function () {
+          window.dispatchEvent(new Event('resize'));
+        }, 180);
+
+        // we stop the simulation of Window Resize after the animations are completed
+        setTimeout(function () {
+          clearInterval(simulateWindowResize);
+        }, 1000);
+
+      });
+    });
+  });
+</script>
+
+</html>

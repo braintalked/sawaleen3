@@ -1,0 +1,488 @@
+html
+{
+  height: 100%;
+}
+#logoFont
+{
+  font-family: 'Aref Ruqaa', serif;
+}
+* {
+    box-sizing: border-box;
+}
+
+/*  Start of Loading Animation */
+.loadingAnimation
+{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    position: fixed;
+    z-index: 99;
+    justify-content: center;
+    align-items: center;
+    background-color: white;  
+}
+.loadingAnimation.hidden
+{
+  animation: fadeOut 1s;
+  animation-fill-mode: forwards;
+}
+@keyframes fadeOut
+{
+  100%{
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+  .dots {
+    width: 70px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  
+  .dot {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: #022e57;
+  }
+  
+  .dot:nth-child(1) {
+    transform: translateX(100%);
+    background-color: #39a9cb; 
+    animation: left 1s ease alternate infinite;
+  }
+  
+  .dot:nth-child(2) {
+    animation: center 1s ease infinite;
+  }
+  
+  .dot:nth-child(3) {
+    transform: translateX(-100%);
+    background-color: #eba83a;
+    animation: right 1s ease alternate infinite;
+  }
+  
+  @keyframes left {
+    0% {
+      transform: translateX(100%);
+    }
+  
+    50% {
+      transform: translateX(-10%);
+    }
+  
+    100% {
+      transform: translateX(100%);
+    }
+  }
+  
+  @keyframes right {
+    0% {
+      transform: translateX(-100%);
+    }
+  
+    50% {
+      transform: translateX(10%);
+    }
+  
+    100% {
+      transform: translateX(-100%);
+    }
+  }
+  @keyframes center {
+    0%,
+    100% {
+      transform: scale(0.5);
+    }
+  
+    50% {
+      transform: scale(1);
+    }
+  }
+/*  End of Loading Animation */
+
+.container-fluid
+{
+  margin-top: 70px;
+  padding: 10px;
+}
+#barberImage
+{
+  max-width:70%;
+  max-height:70%;
+  align-self: center;
+}
+/* Desktop Styles */
+@media (min-width: 579px)
+{
+  #salonOverallInfoCard, #salonServicesCard
+  {
+    min-height: 200px;
+    padding: 10px;
+  }
+  #saloonDataContainer
+  {
+    min-height: 200px;
+  }
+  #servicesDescriptionsContainer
+  {
+    min-height: 50px;
+  }
+
+  #salonImageContainer
+  {
+    /* background-color: blue; */
+    text-align: center;
+    display: block;
+    max-width: 100%;
+    max-height: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: auto;
+    margin-bottom: auto;
+  }
+  #ServiceTitleContainer
+  {
+    /* background-color: red; */
+    text-align: center;
+  }
+  #salonLocationContainer
+  {
+    display: flex;
+    position: absolute;
+    height: 50px;
+    bottom: 0;
+    /* background-color: yellow; */
+    text-align: right;
+    align-items: center;
+ }
+  #provinceText
+  {
+    /* background-color: blue; */
+  }
+  #cityText
+  {
+    /* background-color: orange; */
+  }
+  #salonNameContainer
+  {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    height: 50px;
+    top: 30px;
+    /* background-color: green; */
+    text-align: right;
+    font-size: 45px;
+    font-family: 'Aref Ruqaa', serif;
+  }
+  #clientDataContainer
+  {
+    /* padding: 10px; */
+  }
+  /* Services Container Styles */
+  #servicesOneRowDescription
+  {
+    display: flex;
+    align-items: center;
+    border-bottom: 0.5px solid grey;
+    min-height: 70px;
+    padding: 10px;
+  }
+  .checkboxInput
+  {
+    flex: 1;
+  }
+  .serviceCheckbox
+  {
+    flex: 8;
+  }
+  .nameWraper
+  {
+    /* background-color: green; */
+    display: flex;
+    align-items: center;
+    height: auto;
+    font-size: 20px;
+    text-align: right;
+  }
+  .serviceNameBox
+  {
+    /* background-color: orange; */
+    display: inline-block;
+    min-height: 30px;
+    font-size: 20px;
+    text-align: right;
+    position: absolute;
+    right: 0;
+    max-width: 100%;
+    overflow: auto;
+  }
+  .servicePriceBox
+  {
+
+    align-items: center;
+    /* background-color: blue; */
+    display: inline-block;
+    text-align: center;
+    margin-right: auto;
+    font-size: 20px;
+    max-width: 70px;
+    border-right: solid 1px grey;
+    margin-left: 20px;
+ }
+  .startingFrom
+  {
+    /* background-color: red; */
+    display: block;
+    align-self: center;
+    font-size: 20px;
+    margin-right: auto;
+    text-align: center;
+    width: 70px;
+  }
+  .servicePrice
+  {
+    height: 30px;
+    width: 70px;
+    /* background-color: orange; */
+    margin-right: auto;
+    display: block;
+    align-content: center;
+    font-size: 20px;
+    font-weight: bold;
+    background-color: #caf7e3;
+  }
+  #clientContactDetailesCard
+  {
+    min-height: 200px;
+    /* background-color: orange; */
+  }
+  #contactContainerTitleBox
+  {
+    /* background-color: red; */
+  }
+  #clientName
+  {
+    position: absolute;
+    height: 50px;
+    top: 30%;
+    background-color: yellow;
+  }
+  #clientPhone
+  {
+    position: absolute;
+    height: 50px;
+    top: 55%;
+    background-color: green;
+  }
+  .titles
+  {
+    font-family: 'Aref Ruqaa', serif;
+    text-align: center;
+    font-size: 25px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  #coloredBorderLine
+  {
+    background: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB3aWR0aD0iOTI5IiBoZWlnaHQ9IjYiIHByZXNlcnZlQXNwZWN0UmF0aW89Im5vbmUiPjxkZWZzPjxwYXRoIGlkPSJhIiBkPSJNMCAwaDkyOXY2SDB6Ii8+PHBhdGggaWQ9ImMiIGQ9Ik00NDYuNTUgMEgwdjEwMzJoNDQ2LjU1eiIvPjwvZGVmcz48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxtYXNrIGlkPSJiIiBmaWxsPSIjZmZmIj48dXNlIHhsaW5rOmhyZWY9IiNhIi8+PC9tYXNrPjx1c2UgZmlsbD0iI0YxQUUyQSIgZmlsbC1ydWxlPSJub256ZXJvIiB4bGluazpocmVmPSIjYSIvPjxnIG1hc2s9InVybCgjYikiPjxwYXRoIGZpbGw9IiMwMDFFNjIiIGQ9Ik05MDUuMjI0IDMwNi4yNDRjLTU0LjIwOS03Mi4zNzktMTE0LjM1NSA3NC4wMDktMTkwLjY5IDEzMS45MzUtODguNTIxIDY3LjE3NS0xMjEuNjk2LTE2MS41NzUtMTI1LjYwNi0yNjUuNTk4QzU4NS4zOTIgNzguNTM2IDU3OS44Ni02LjQzMiA1NzMuNzI0LTgySDMxNC41ODdDMzcwLjQ2OCAzOC4zMTQgNDI3LjggMTI4LjI4OSA0MjkuMzEzIDE2NS40MzVjMi4zODYgNTguNTEzLTEzLjUyIDExNS4xNDktMzkuNzEzIDE0MS4yNjEtMjYuMTkyIDI2LjExNC02MS43NDYgNjguNTA3LTY4Ljg2MyAxMDMuMzktNy4xMTggMzQuODgtNC41OTggOTEuMzY1IDEyLjE0OSAxNDcuNjU3IDQ3LjI5NSAxNTguOTc3IDQuMDkgMTgwLjQ4NS0xNy42MDIgMTkxLjIxMS0xMi42MTcgNi4yNC0zNS40NjIgNi4zODItMzYuMzI1IDM1LjU3LS43MyAyNC42NSAxOC42NzQgMjMuNDc5IDQxLjYyIDQ5LjE1OCAyNC45ODEgMjcuOTUzIDExLjgyIDU2LjM3NiAzLjYzOCAxMTYuMzE4SDEwMTVWNTc0LjM1M2MtMzguMzAzLTExOS4wNDQtODEuMTM0LTIyOS44NjYtMTA5Ljc3Ni0yNjguMTEiLz48cGF0aCBmaWxsPSIjMDBCMEI5IiBkPSJNNTg4LjkyNyAxNzIuNThjMy45MTIgMTA0LjAyNCAzNy4wODYgMzMyLjc3NSAxMjUuNjA4IDI2NS42IDc2LjMzNC01Ny45MjcgMTM2LjQ4LTIwNC4zMTYgMTkwLjY4OS0xMzEuOTM2IDI4LjY0MSAzOC4yNDEgNzEuNDczIDE0OS4wNjMgMTA5Ljc3NiAyNjguMTA4Vi04Mkg1NzMuNzIzYzYuMTM4IDc1LjU2NyAxMS42NjggMTYwLjUzNyAxNS4yMDQgMjU0LjU4Ii8+PGcgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoLTE3IC04MikiPjxtYXNrIGlkPSJkIiBmaWxsPSIjZmZmIj48dXNlIHhsaW5rOmhyZWY9IiNjIi8+PC9tYXNrPjxwYXRoIGZpbGw9IiNGRkI1MDAiIGQ9Ik0zMzcuNTggOTE1LjY4MWMtMjIuOTQ3LTI1LjY3OS00Mi4zNTItMjQuNTA1LTQxLjYyMi00OS4xNTkuODY1LTI5LjE4NyAyMy43MDktMjkuMzI5IDM2LjMyNi0zNS41NjcgMjEuNjkxLTEwLjcyOCA2NC44OTctMzIuMjM0IDE3LjYwMi0xOTEuMjEzLTE2Ljc0Ny01Ni4yOTItMTkuMjY3LTExMi43NzUtMTIuMTUtMTQ3LjY1NyA3LjExOC0zNC44ODMgNDIuNjcyLTc3LjI3NiA2OC44NjQtMTAzLjM4OCAyNi4xOTItMjYuMTE0IDQyLjA5OS04Mi43NSAzOS43MTQtMTQxLjI2My0xLjUxNS0zNy4xNDYtNTguODQ2LTEyNy4xMi0xMTQuNzI3LTI0Ny40MzVIMHYxMDMyaDM0MS4yMTdjOC4xODItNTkuOTQyIDIxLjM0My04OC4zNjMtMy42MzctMTE2LjMxOCIgbWFzaz0idXJsKCNkKSIvPjwvZz48L2c+PC9nPjwvc3ZnPg==) no-repeat 50%;
+    background-size: cover;
+    border: none;
+    height: 6px;
+  }
+}
+
+/* Start of Mobile Styles */
+@media (max-width: 578.9px)
+{
+  #salonOverallInfoCard
+  {
+    min-height: 150px;
+    padding: 10px;
+  }
+  #saloonDataContainer
+  {
+    min-height: 100px;
+  }
+  #salonServicesCard
+  {
+    min-height: 150px;
+  }
+  #servicesDescriptionsContainer
+  {
+    min-height: 70px;
+  }
+
+  #salonImageContainer
+  {
+    /* background-color: blue; */
+    text-align: center;
+    display: block;
+    max-width: 80%;
+    max-height: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: auto;
+    margin-bottom: auto;
+    padding: 2px;
+  }
+  #ServiceTitleContainer
+  {
+    /* background-color: red; */
+    text-align: center;
+  }
+  #salonLocationContainer
+  {
+    display: flex;
+    position: absolute;
+    height: 50px;
+    bottom: 0;
+    /* background-color: yellow; */
+    text-align: center;
+    align-items: center;
+ }
+  #provinceText
+  {
+    /* background-color: blue; */
+  }
+  #cityText
+  {
+    /* background-color: orange; */
+  }
+  #salonNameContainer
+  {
+    position: relative;
+    display: flex;
+    align-items: center;
+    height: 50px;
+    /* background-color: green; */
+    font-size: 45px;
+    justify-content: center;
+    font-family: 'Aref Ruqaa', serif;
+  }
+  #clientDataContainer
+  {
+    /* padding: 10px; */
+  }
+  /* Services Container Styles */
+  #servicesOneRowDescription
+  {
+    display: flex;
+    align-items: center;
+    border-bottom: 0.5px solid grey;
+    min-height: 50px;
+    padding: 10px;
+  }
+  .checkboxInput
+  {
+    flex: 1;
+    justify-self: flex-end;
+    border: solid 1px black;
+  }
+  .serviceCheckbox
+  {
+    flex: 6;
+  }
+  .nameWraper
+  {
+    /* background-color: green; */
+    display: flex;
+    align-items: center;
+    height: auto;
+    font-size: 16px;
+    text-align: right;
+  }
+  .serviceNameBox
+  {
+    /* background-color: orange; */
+    display: inline-block;
+    min-height: 30px;
+    font-size: 16px;
+    text-align: right;
+    position: absolute;
+    right: 0;
+    max-width: 100%;
+    overflow: auto;
+  }
+  .servicePriceBox
+  {
+    align-items: center;
+    /* background-color: blue; */
+    display: inline-block;
+    margin-right: auto;
+    font-size: 16px;
+    max-width: 70px;
+    border-right: solid 1px grey;
+    margin-left: 10px;
+
+ }
+  .startingFrom
+  {
+    /* background-color: red; */
+    display: block;
+    align-self: center;
+    font-size: 16px;
+    margin-right: auto;
+    text-align: center;
+    width: 60px;
+  }
+  .servicePrice
+  {
+    height: 30px;
+    width: 60px;
+    /* background-color: orange; */
+    margin-right: auto;
+    display: block;
+    text-align: center;
+    font-size: 16px;
+    font-weight: bold;
+    background-color: #caf7e3;
+  }
+  #clientContactDetailesCard
+  {
+    min-height: 200px;
+    /* background-color: orange; */
+  }
+  #contactContainerTitleBox
+  {
+    /* background-color: red; */
+  }
+  #clientName
+  {
+    position: absolute;
+    height: 50px;
+    top: 30%;
+    background-color: yellow;
+  }
+  #clientPhone
+  {
+    position: absolute;
+    height: 50px;
+    top: 55%;
+    background-color: green;
+  }
+  .titles
+  {
+    font-family: 'Aref Ruqaa', serif;
+    text-align: center;
+    font-size: 25px;
+    margin-left: auto;
+    margin-right: auto;
+    /* background-color: red; */
+  }
+  #coloredBorderLine
+  {
+    background: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB3aWR0aD0iOTI5IiBoZWlnaHQ9IjYiIHByZXNlcnZlQXNwZWN0UmF0aW89Im5vbmUiPjxkZWZzPjxwYXRoIGlkPSJhIiBkPSJNMCAwaDkyOXY2SDB6Ii8+PHBhdGggaWQ9ImMiIGQ9Ik00NDYuNTUgMEgwdjEwMzJoNDQ2LjU1eiIvPjwvZGVmcz48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxtYXNrIGlkPSJiIiBmaWxsPSIjZmZmIj48dXNlIHhsaW5rOmhyZWY9IiNhIi8+PC9tYXNrPjx1c2UgZmlsbD0iI0YxQUUyQSIgZmlsbC1ydWxlPSJub256ZXJvIiB4bGluazpocmVmPSIjYSIvPjxnIG1hc2s9InVybCgjYikiPjxwYXRoIGZpbGw9IiMwMDFFNjIiIGQ9Ik05MDUuMjI0IDMwNi4yNDRjLTU0LjIwOS03Mi4zNzktMTE0LjM1NSA3NC4wMDktMTkwLjY5IDEzMS45MzUtODguNTIxIDY3LjE3NS0xMjEuNjk2LTE2MS41NzUtMTI1LjYwNi0yNjUuNTk4QzU4NS4zOTIgNzguNTM2IDU3OS44Ni02LjQzMiA1NzMuNzI0LTgySDMxNC41ODdDMzcwLjQ2OCAzOC4zMTQgNDI3LjggMTI4LjI4OSA0MjkuMzEzIDE2NS40MzVjMi4zODYgNTguNTEzLTEzLjUyIDExNS4xNDktMzkuNzEzIDE0MS4yNjEtMjYuMTkyIDI2LjExNC02MS43NDYgNjguNTA3LTY4Ljg2MyAxMDMuMzktNy4xMTggMzQuODgtNC41OTggOTEuMzY1IDEyLjE0OSAxNDcuNjU3IDQ3LjI5NSAxNTguOTc3IDQuMDkgMTgwLjQ4NS0xNy42MDIgMTkxLjIxMS0xMi42MTcgNi4yNC0zNS40NjIgNi4zODItMzYuMzI1IDM1LjU3LS43MyAyNC42NSAxOC42NzQgMjMuNDc5IDQxLjYyIDQ5LjE1OCAyNC45ODEgMjcuOTUzIDExLjgyIDU2LjM3NiAzLjYzOCAxMTYuMzE4SDEwMTVWNTc0LjM1M2MtMzguMzAzLTExOS4wNDQtODEuMTM0LTIyOS44NjYtMTA5Ljc3Ni0yNjguMTEiLz48cGF0aCBmaWxsPSIjMDBCMEI5IiBkPSJNNTg4LjkyNyAxNzIuNThjMy45MTIgMTA0LjAyNCAzNy4wODYgMzMyLjc3NSAxMjUuNjA4IDI2NS42IDc2LjMzNC01Ny45MjcgMTM2LjQ4LTIwNC4zMTYgMTkwLjY4OS0xMzEuOTM2IDI4LjY0MSAzOC4yNDEgNzEuNDczIDE0OS4wNjMgMTA5Ljc3NiAyNjguMTA4Vi04Mkg1NzMuNzIzYzYuMTM4IDc1LjU2NyAxMS42NjggMTYwLjUzNyAxNS4yMDQgMjU0LjU4Ii8+PGcgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoLTE3IC04MikiPjxtYXNrIGlkPSJkIiBmaWxsPSIjZmZmIj48dXNlIHhsaW5rOmhyZWY9IiNjIi8+PC9tYXNrPjxwYXRoIGZpbGw9IiNGRkI1MDAiIGQ9Ik0zMzcuNTggOTE1LjY4MWMtMjIuOTQ3LTI1LjY3OS00Mi4zNTItMjQuNTA1LTQxLjYyMi00OS4xNTkuODY1LTI5LjE4NyAyMy43MDktMjkuMzI5IDM2LjMyNi0zNS41NjcgMjEuNjkxLTEwLjcyOCA2NC44OTctMzIuMjM0IDE3LjYwMi0xOTEuMjEzLTE2Ljc0Ny01Ni4yOTItMTkuMjY3LTExMi43NzUtMTIuMTUtMTQ3LjY1NyA3LjExOC0zNC44ODMgNDIuNjcyLTc3LjI3NiA2OC44NjQtMTAzLjM4OCAyNi4xOTItMjYuMTE0IDQyLjA5OS04Mi43NSAzOS43MTQtMTQxLjI2My0xLjUxNS0zNy4xNDYtNTguODQ2LTEyNy4xMi0xMTQuNzI3LTI0Ny40MzVIMHYxMDMyaDM0MS4yMTdjOC4xODItNTkuOTQyIDIxLjM0My04OC4zNjMtMy42MzctMTE2LjMxOCIgbWFzaz0idXJsKCNkKSIvPjwvZz48L2c+PC9nPjwvc3ZnPg==) no-repeat 50%;
+    background-size: cover;
+    border: none;
+    height: 6px;
+  }
+}
+/* End of Mobile Styles */
+
+/* increase services descrition box hegiht at 876px */
+
