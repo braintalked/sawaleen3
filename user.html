@@ -402,7 +402,7 @@
       var userType = localStorage.getItem("userType");
 
       // if (firebase.auth().currentUser.metadata.creationTime === firebase.auth().currentUser.metadata.lastSignInTime)
-     if (userType == "newUser") {
+      if (userType == "newUser") {
         console.log("////// " + userType + " //////");
 
         let newSaloon = {}
@@ -446,7 +446,7 @@
             });
           // localStorage.setItem("userType", "OldUser");
         }
-      } 
+      }
 
       else {
         // for current saloons log in
