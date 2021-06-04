@@ -402,13 +402,15 @@
       var userType = localStorage.getItem("userType");
 
       // if (firebase.auth().currentUser.metadata.creationTime === firebase.auth().currentUser.metadata.lastSignInTime)
-      if (userType == "newUser") {
+     if (userType == "newUser") {
         console.log("////// " + userType + " //////");
 
         let newSaloon = {}
         let newSaloonName = localStorage.getItem("newSaloonName");
         let newSalonImageProfile  = "images/barberAvatar.png";
-        
+        // firebase.storage().ref('users/' + barberID + '/profile.jpg').getDownloadURL().then(imgUrl =>{
+        //   img.src = imgUrl;
+        //    });
         let newSaloonEmail = localStorage.getItem("newSaloonEmail");
         let newSaloonProvince = localStorage.getItem("newSaloonProvince");
         let newSaloonCity = localStorage.getItem("newSaloonCity");
@@ -444,7 +446,7 @@
             });
           // localStorage.setItem("userType", "OldUser");
         }
-      }
+      } 
 
       else {
         // for current saloons log in
