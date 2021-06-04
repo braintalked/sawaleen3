@@ -407,12 +407,14 @@
 
         let newSaloon = {}
         let newSaloonName = localStorage.getItem("newSaloonName");
+        let newSalonImageProfile  = "images/barberAvatar.png";
+        
         let newSaloonEmail = localStorage.getItem("newSaloonEmail");
         let newSaloonProvince = localStorage.getItem("newSaloonProvince");
         let newSaloonCity = localStorage.getItem("newSaloonCity");
-        let salonProfileImage = firebase.storage().ref('users/' + firebase.auth().currentUser.uid + '/profile.jpg').getDownloadURL().then(imgUrl =>{
-            document.getElementById("salonProfileImage").src = imgUrl;
-        });
+        // let salonProfileImage = firebase.storage().ref('users/' + firebase.auth().currentUser.uid + '/profile.jpg').getDownloadURL().then(imgUrl =>{
+        //     document.getElementById("salonProfileImage").src = imgUrl;
+        // });
         // let saloonEmail = localStorage.get("saloonEmail");
 
         let newSaloonID = user.uid;
@@ -421,18 +423,18 @@
         let key = newSaloonID;
         if (newSaloonName != "" && newSaloonEmail != "" && newSaloonProvince != "") {
           document.getElementById("userProfileTitle").innerText = newSaloonName + " Profile";
-          console.log(newSaloonID + " is your user id");
-          console.log(newSaloonName + " is your saloon name");
-          console.log(newSaloonEmail + " is your saloon email");
-          console.log(newSaloonProvince + " is your province");
-          console.log(newSaloonCity + " is your city");
+          // console.log(newSaloonID + " is your user id");
+          // console.log(newSaloonName + " is your saloon name");
+          // console.log(newSaloonEmail + " is your saloon email");
+          // console.log(newSaloonProvince + " is your province");
+          // console.log(newSaloonCity + " is your city");
 
           document.getElementById("salonName").innerText = newSaloonName;
           document.getElementById("salonProvince").innerText = newSaloonProvince;
           document.getElementById("salonCity").innerText = newSaloonCity;
 
           // Add a new user/saloon to database
-          newSaloonProfile = { saloonID: newSaloonID, saloonName: newSaloonName, saloonEmail: newSaloonEmail, saloonProvince: newSaloonProvince, saloonCity: newSaloonCity, clients: { "saloonID": newSaloonID } };
+          newSaloonProfile = { saloonID: newSaloonID, saloonName: newSaloonName, salonProfileImage: newSalonImageProfile, saloonEmail: newSaloonEmail, saloonProvince: newSaloonProvince, saloonCity: newSaloonCity, clients: { "saloonID": newSaloonID } };
           newSaloon[key] = newSaloonProfile;
           db.collection('saloons').doc('Saloon Profiles').set(newSaloon, { merge: true }).then(() => {
             console.log("Saloon added to database successfully written!");

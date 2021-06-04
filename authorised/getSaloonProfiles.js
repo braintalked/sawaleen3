@@ -13,13 +13,14 @@ console.log("inside getSaloonProfiles.js file")
           for (var key in data)
           {
             let name = data[key]["saloonName"]
+            let salonProfileImage = data[key]["salonProfileImage"];
             let barberID = data[key]["saloonID"]
             let province = data[key]["saloonProvince"]
             let city = data[key]["saloonCity"]
             let services = data[key]["services"]
 
             console.log( key, data[key] );
-            newBarberCard(name,province,city,barberID,services)
+            newBarberCard(name,salonProfileImage,province,city,barberID,services)
           }
           loader.classList.add("hidden");
         } else {
@@ -34,9 +35,9 @@ console.log("inside getSaloonProfiles.js file")
 
 /////////////////// START OF BARBER CARDS POPULATING ///////////////////
 
-function  newBarberCard(name,province,city,barberID,services)
+function newBarberCard(name,salonProfileImage,province,city,barberID,services)
 {
-  var provinceName = ""
+  var provinceName = "";
   let div1 = document.createElement("div");
   let div2 = document.createElement("div");
   let img = document.createElement("img");
@@ -86,21 +87,27 @@ function  newBarberCard(name,province,city,barberID,services)
     provinceName = "";
       }
 
-  div1.className = "col-xs-3 col-sm-6 col-md-6 col-lg-3 barber "+provinceName+" "+(city.replace(/\s/g, ''))
-  div2.className = "card w-100 mb-2 btn book"
+  div1.className = "col-xs-3 col-sm-6 col-md-6 col-lg-3 barber "+provinceName+" "+(city.replace(/\s/g, ''));
+  div2.className = "card w-100 mb-2 btn book";
   div2.id = barberID;
-  img.className =  "card-img-top"
-  img.id = barberID+"image"
-  firebase.storage().ref('users/' + barberID + '/profile.jpg').getDownloadURL().then(imgUrl =>{
-    img.src = imgUrl;
-});
+  img.className =  "card-img-top";
+  img.id = barberID+"image";
+
+  if(salonProfileImage == "images/barberAvatar.png")
+  {
+    img.src = "../"+salonProfileImage;
+  }
+  else{
+    img.src = salonProfileImage;
+  }
+  
   div3.className = "card-body"
   div4.className = "text-center"
   h5.className = "card-title"
   h5.style.textAlign = "center"
   h5.innerText = name
   h5.id = barberID+"name"
-  image.src = "../images/locationIcon-small.png"
+  image.src = "../images/locationIcon-small.png";    
   span1.className = "text-right "+barberID+"province"
   span1.style.fontSize = "14px";
   span2.style.fontSize = "14px";

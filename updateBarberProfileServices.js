@@ -3,6 +3,7 @@
 
 
 let barberName = "";
+let barberProfileImageSrc = "";
 let barberID2 = "";
 let barberProvince = "";
 let barberCity = "";
@@ -26,6 +27,7 @@ barbers.get().then((doc) => {
         if([key] == localStorage.getItem("barberID"))
         {
           barberName = data[key]["saloonName"];
+          barberProfileImageSrc = data[key]["salonProfileImage"];
           barberID2 = data[key]["saloonID"];
           barberProvince = data[key]["saloonProvince"];
           barberCity = data[key]["saloonCity"];
@@ -91,9 +93,13 @@ function updateProfile()
 
   document.getElementById("barberName").src = barberName;
   document.getElementById("barberName").innerText = barberName;
-  firebase.storage().ref('users/' + barberID2 + '/profile.jpg').getDownloadURL().then(imgUrl =>{
-    document.getElementById("barberImage").src = imgUrl;
-  });
+  if (barberProfileImageSrc == "images/barberAvatar.png")
+  {
+    document.getElementById("barberImage").src = "../"+barberProfileImageSrc;
+  }
+  else{
+    document.getElementById("barberImage").src = barberProfileImageSrc;
+  }
   document.getElementById("provinceText").style.marginLeft = "5px";
   document.getElementById("cityText").style.marginRight = "5px";
   document.getElementById("cityText").innerText = barberCity;
