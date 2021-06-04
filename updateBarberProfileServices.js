@@ -93,7 +93,7 @@ function updateProfile()
 
   document.getElementById("barberName").src = barberName;
   document.getElementById("barberName").innerText = barberName;
-  if (barberProfileImageSrc == "images/barberAvatar.png")
+  if (barberProfileImageSrc == "images/barberAvatar.png" && firebase.auth().currentUser != null)
   {
     document.getElementById("barberImage").src = "../"+barberProfileImageSrc;
   }
