@@ -120,12 +120,12 @@ html
 {
   #salonOverallInfoCard, #salonServicesCard
   {
-    min-height: 200px;
+    min-height: 150px;
     padding: 10px;
   }
   #saloonDataContainer
   {
-    min-height: 200px;
+    min-height: 150px;
   }
   #servicesDescriptionsContainer
   {
@@ -144,9 +144,11 @@ html
     margin-top: auto;
     margin-bottom: auto;
   }
-  #ServiceTitleContainer
+  #ServiceTitleContainer,#BookingDateAndTimeTitleContainer
   {
     text-align: center;
+    /* background-color: green; */
+    padding-right: 10px;
   }
   #bookingPickersContainer
   {
@@ -154,9 +156,15 @@ html
     min-height: 100px;
     padding: 10px;
   }
-  #datePicker
+  #datetime-picker
   {
-    margin: 5px;
+    margin-top: 5px;
+    margin-right: 5%;
+  }
+  #requiredBlock
+  {
+    margin-top: 5px;
+    padding-right: 5%;
   }
   #salonLocationContainer
   {
@@ -188,6 +196,11 @@ html
     font-size: 45px;
     font-family: 'Aref Ruqaa', serif;
   }
+  #bookingDateAndTimePickers
+  {
+    min-height: 150px;
+    padding: 10px;
+  }
   #clientDataContainer
   {
     /* padding: 10px; */
@@ -202,7 +215,7 @@ html
     min-height: 70px;
     padding: 10px;
     max-width: 97%;
-
+    /* background-color: yellow; */
   }
   .checkboxInput
   {
@@ -268,6 +281,15 @@ html
     font-weight: bold;
     background-color: #caf7e3;
   }
+  #bookingPickersContainer
+  {
+    display: flex;
+    align-items: center;
+    justify-self: center;
+    min-height: 70px;
+    padding: 10px;
+    width: 200px;
+  }
   #clientContactDetailesCard
   {
     min-height: 200px;
@@ -282,14 +304,14 @@ html
     position: absolute;
     height: 50px;
     top: 30%;
-    background-color: yellow;
+    /* background-color: yellow; */
   }
   #clientPhone
   {
     position: absolute;
     height: 50px;
     top: 55%;
-    background-color: green;
+    /* background-color: green; */
   }
   .titles
   {
@@ -318,7 +340,7 @@ html
   #salonOverallInfoCard
   {
     min-height: 150px;
-    padding: 10px;
+    /* padding: 10px; */
   }
   #salonImageContainer
   {
@@ -349,11 +371,17 @@ html
   {
     /* background-color: red; */
     min-height: 100px;
-    padding: 10px;
   }
-  #datePicker
+  #datetime-picker
   {
-    margin: 5px;
+    margin-top: 5px;
+    margin-right: auto;
+    margin-left: auto;
+  }
+  #requiredBlock
+  {
+    margin-top: 5px;
+    padding-right: 30%;
   }
   #ServiceTitleContainer
   {
@@ -388,6 +416,10 @@ html
     font-size: 45px;
     justify-content: center;
     font-family: 'Aref Ruqaa', serif;
+  }
+  #bookingDateAndTimePickers
+  {
+    min-height: 150px;
   }
   #clientDataContainer
   {
@@ -484,14 +516,14 @@ html
     position: absolute;
     height: 50px;
     top: 30%;
-    background-color: yellow;
+    /* background-color: yellow; */
   }
   #clientPhone
   {
     position: absolute;
     height: 50px;
     top: 55%;
-    background-color: green;
+    /* background-color: green; */
   }
   .titles
   {

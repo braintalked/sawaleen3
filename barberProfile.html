@@ -143,8 +143,6 @@
       </div>
     </div>
 
-
-
     <!-- Services Container -->
     <div id="salonServicesCard" class="row d-flex justify-content-center">
       <div id="ServiceTitleContainer" class="col-xs-12 col-sm-4 col-md-3 col-lg-3 ml-auto">
@@ -163,18 +161,21 @@
 
     <!--Booking Pickers Container -->
     <div id="bookingDateAndTimePickers" class="row d-flex justify-content-center">
-      <div id="ServiceTitleContainer" class="col-xs-12 col-sm-4 col-md-3 col-lg-3 ml-auto">
+      <div id="BookingDateAndTimeTitleContainer" class="col-xs-12 col-sm-4 col-md-3 col-lg-3 ml-auto">
         <p class="titles">وقت وتاريخ حجز الخدمات</p>
       </div>
-      <div id="bookingPickersContainer" class="d-flex justify-content-center col-xs-12 col-sm-8 col-md-9 col-lg-9 ml-auto">
-        <div style="text-align:right; margin-top:30px">
-          <span id="required3" class="d-none" style="font-size: 20px; color: red">*مطلوب</span>
-          <i id="required33" class="fas fa-check-circle d-none"></i>
-          <div class="d-flex justify-content-center input-group mb-3">
-            <input lan="en" dir="ltr" id="datetime-picker" placeholder="الرجاء الإختيار..." />
+      <div id="dateAndTimePickerContainer" class="col-xs-12 col-sm-8 col-md-9 col-lg-9 ml-auto">
+        <div class="row" style="text-align:right;">
+          <div class="">
+            <div id="requiredBlock">
+              <span id="required3" class="d-none" style="font-size: 20px; color: red">*مطلوب</span>
+              <i id="required33" class="fas fa-check-circle d-none"></i>  
+            </div>
+            <div class="d-flex input-group mb-3">
+              <input lan="en" dir="rtl" id="datetime-picker" placeholder="الرجاء الإختيار..." />
+            </div>
           </div>
-        </div>           
-     </div>
+        </div>
       </div>
       <div class="coloredBorderLine">
       </div>
@@ -187,15 +188,7 @@
         <p class="titles">معلومات التواصل</p>
       </div>
       <div id="clientDataContainer" class="col-xs-12 col-sm-8 col-md-9 col-lg-9 ml-auto">
-        <!-- <div class="row">
-        <div id="clientName" class="col-xs-12 col-sm-12 col-md-12 col-lg-12 ml-auto">
-
-        </div>
-        <div id="clientPhone" class="col-xs-12 col-sm-12 col-md-12 col-lg-12 ml-auto">
-
-        </div>
-      </div> -->
-        <div style="padding-left: 10px; padding-right: 10px; text-align:right; margin-top:30px">
+        <div style="padding-left: 10px; padding-right: 10px; text-align:right; margin-top:10px">
           <span id="required1" class="d-none" style="font-size: 20px; color: red">*مطلوب</span>
           <i id="required11" class="fas fa-check-circle d-none"></i>
           <div class="input-group mb-3" dir="ltr" style="margin-right: 5px; margin-left: 40px;">
@@ -256,7 +249,8 @@
     controls: ['datetime'],
     touchUi: true,
     // calendarSystem: mobiscroll.hijriCalendar,
-    locale: mobiscroll.locale.ar
+    locale: mobiscroll.locale.ar,
+    stepMinute: 15
   });
 </script>
 
