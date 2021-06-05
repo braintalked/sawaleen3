@@ -17,6 +17,7 @@ document.getElementById("uploadProfileImage").addEventListener('click', function
         firebase.storage().ref('users/' + firebase.auth().currentUser.uid + '/profile.jpg').getDownloadURL().then(imgUrl =>{
            newProfileImageSrc = imgUrl;
            updateProfileImage(newProfileImageSrc);
+           localStorage.setItem("saloonProfileImage", imgUrl);
            });
     
             }).catch(error => {

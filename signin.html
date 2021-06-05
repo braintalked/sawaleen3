@@ -97,11 +97,11 @@
     if (user) {
 
       let saloonEmail = document.getElementById("email").value;
-          let userType = "oldUser";
+          let isNewUser = false;
 
           // localStorage.setItem("saloonEmail", saloonEmail);
           // localStorage.setItem("saloonName", saloonName);
-          localStorage.setItem("userType", userType);
+          localStorage.setItem("isNewUser", isNewUser);
       // START FETCHING USER DATABSE //
       var saloonProfiles = db.collection("saloons").doc("Saloon Profiles");
 
@@ -110,12 +110,12 @@
               var data = doc.data()
               for (var key in data)
               {
-
                 if (key == user.uid)
                 {
                   console.log( key, data[key] );
 
                   let name = data[key]["saloonName"]
+                  let saloonProfileImage = data[key]["salonProfileImage"]
                   let email = data[key]["saloonEmail"]
                   let barberID = data[key]["saloonID"]
                   let province = data[key]["saloonProvince"]
@@ -170,6 +170,7 @@
                   localStorage.setItem("saloonClients", stringifiedSaloonClients)
 
                   localStorage.setItem("saloonName", name);
+                  localStorage.setItem("saloonProfileImage", saloonProfileImage);
                   localStorage.setItem("saloonEmail", email);
                   localStorage.setItem("saloonID", barberID);
                   localStorage.setItem("saloonProvince", province);

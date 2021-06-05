@@ -55,6 +55,7 @@ $("#signIn").click(function(){
     firebase.auth().signInWithEmailAndPassword(email, password)
     .then((userCredential) => {
       // Signed in
+      localStorage.setItem("isNewUser", "false");
       var user = userCredential.user;
       // ...
     })

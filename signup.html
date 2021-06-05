@@ -83,7 +83,7 @@ select{
                     <div class="card px-5 py-5" style="margin-top: 50px;">
                       <span id="required1" class="" style="font-size: 12px;">*Required</span>
                       <i id="required11" style="color: black" class="fas fa-check-circle d-none"></i>
-                      <div class="form-input"> <i class="fa fa-user"></i> <input id="newSaloonName" type="text" class="form-control" placeholder="Saloon name"> </div>
+                      <div class="form-input"> <i class="fa fa-user"></i> <input id="saloonName" type="text" class="form-control" placeholder="Saloon name"> </div>
                         <span id="required2" style="font-size: 12px;">*Required</span>
                         <i id="required22" style="color: black" class="fas fa-check-circle d-none"></i>
                         <div class="form-input" style="text-align: left"> <i class="fa fa-envelope"></i> <input type="email" id="email" class="form-control" placeholder="Email address"> </div>
@@ -265,19 +265,29 @@ select{
     firebase.auth().onAuthStateChanged((user) => {
     if (user) {
           // window.location.href = "user.html";
-          window.location.replace("user.html");
 
           // User is signed in, see docs for a list of available properties
           // https://firebase.google.com/docs/reference/js/firebase.User
-          let newSaloonName = document.getElementById("newSaloonName").value;
-          let newSaloonEmail = document.getElementById("email").value;
-          let userType = "newUser";
-
-          localStorage.setItem("newSaloonEmail", newSaloonEmail);
-          localStorage.setItem("newSaloonName", newSaloonName);
-          localStorage.setItem("userType", userType);
+          let isNewUser = localStorage.getItem("isNewUser");
+          if(isNewUser == "true")
+          {
+            console.log("THIS IS A NEW USER!");
+            let newSaloonName = document.getElementById("saloonName").value;
+            let newSaloonEmail = document.getElementById("email").value;
+            let newSaloonProfileImage = "images/barberAvatar.png";
+            localStorage.setItem("saloonEmail", newSaloonEmail);
+            localStorage.setItem("saloonName", newSaloonName);
+            localStorage.setItem("saloonProfileImage", newSaloonProfileImage);
+           
+            console.log("isNewUser: "+isNewUser);
+            console.log("saloonEmail: "+newSaloonEmail);
+            console.log("saloonName "+newSaloonName);
+          }
+          
           // localStorage.setItem("newSaloonProvince", newSaloonProvince);
           // localStorage.setItem("newSaloonCity", newSaloonCity);
+          window.location.replace("user.html");
+
         }
     });
   </script>

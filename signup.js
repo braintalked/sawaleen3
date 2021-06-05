@@ -44,7 +44,7 @@ function provinceFilter()
     default:
     newSaloonProvince = "";
   }
-  localStorage.setItem("newSaloonProvince", newSaloonProvince);
+  localStorage.setItem("saloonProvince", newSaloonProvince);
 
   if(selectedProvinceText == "المنطقة الشرقية (Eastern Province)")
   {
@@ -102,7 +102,7 @@ function provinceFilter()
         var selectedCity = document.getElementById("easternCities");
         selectedCityValue = selectedCity.options[selectedCity.selectedIndex].value;// get selected option value
         selectedCityText = selectedCity.options[selectedCity.selectedIndex].text;
-        localStorage.setItem("newSaloonCity", selectedCityText);
+        localStorage.setItem("saloonCity", selectedCityText);
         console.log(selectedProvince)
       });
     console.log(selectedProvinceText)
@@ -161,7 +161,7 @@ function provinceFilter()
     document.getElementById("haelCities").addEventListener("change", function(){
       var selectedCity = document.getElementById("haelCities");
       selectedCityText = selectedCity.options[selectedCity.selectedIndex].text;
-      localStorage.setItem("newSaloonCity", selectedCityText);
+      localStorage.setItem("saloonCity", selectedCityText);
       console.log(selectedCityText);
       });
     console.log(selectedProvinceText)
@@ -220,7 +220,7 @@ function provinceFilter()
       document.getElementById("makkahCities").addEventListener("change", function(){
         var selectedCity = document.getElementById("makkahCities");
         selectedCityText = selectedCity.options[selectedCity.selectedIndex].text;
-        localStorage.setItem("newSaloonCity", selectedCityText);
+        localStorage.setItem("saloonCity", selectedCityText);
         console.log(selectedCityText);
       });
     console.log(selectedProvinceText)
@@ -279,7 +279,7 @@ function provinceFilter()
       document.getElementById("aseerCities").addEventListener("change", function(){
         var selectedCity = document.getElementById("aseerCities");
         selectedCityText = selectedCity.options[selectedCity.selectedIndex].text;
-        localStorage.setItem("newSaloonCity", selectedCityText);
+        localStorage.setItem("saloonCity", selectedCityText);
         console.log(selectedCityText);
       });
       console.log(selectedProvinceText)
@@ -338,7 +338,7 @@ function provinceFilter()
       document.getElementById("riyadhCities").addEventListener("change", function(){
         var selectedCity = document.getElementById("riyadhCities");
         selectedCityText = selectedCity.options[selectedCity.selectedIndex].text;
-        localStorage.setItem("newSaloonCity", selectedCityText);
+        localStorage.setItem("saloonCity", selectedCityText);
         console.log(selectedCityText);
       });
       console.log(selectedProvinceText)
@@ -398,7 +398,7 @@ function provinceFilter()
     document.getElementById("madinahCities").addEventListener("change", function(){
       var selectedCity = document.getElementById("madinahCities");
       selectedCityText = selectedCity.options[selectedCity.selectedIndex].text;
-      localStorage.setItem("newSaloonCity", selectedCityText);
+      localStorage.setItem("saloonCity", selectedCityText);
       console.log(selectedCityText);
       });
     console.log(selectedProvinceText)
@@ -457,7 +457,7 @@ function provinceFilter()
     document.getElementById("qassimCities").addEventListener("change", function(){
       var selectedCity = document.getElementById("qassimCities");
       selectedCityText = selectedCity.options[selectedCity.selectedIndex].text;
-      localStorage.setItem("newSaloonCity", selectedCityText);
+      localStorage.setItem("saloonCity", selectedCityText);
       console.log(selectedCityText);
       });
     console.log(selectedProvinceText)
@@ -516,7 +516,7 @@ function provinceFilter()
       document.getElementById("taboukCities").addEventListener("change", function(){
         var selectedCity = document.getElementById("taboukCities");
         selectedCityText = selectedCity.options[selectedCity.selectedIndex].text;
-        localStorage.setItem("newSaloonCity", selectedCityText);
+        localStorage.setItem("saloonCity", selectedCityText);
         console.log(selectedCityText);
       });
       console.log(selectedProvinceText)
@@ -575,7 +575,7 @@ function provinceFilter()
       document.getElementById("najranCities").addEventListener("change", function(){
         var selectedCity = document.getElementById("najranCities");
         selectedCityText = selectedCity.options[selectedCity.selectedIndex].text;
-        localStorage.setItem("newSaloonCity", selectedCityText);
+        localStorage.setItem("saloonCity", selectedCityText);
         console.log(selectedCityText);
       });
     console.log(selectedProvinceText)
@@ -634,7 +634,7 @@ function provinceFilter()
       document.getElementById("jazanCities").addEventListener("change", function(){
         var selectedCity = document.getElementById("jazanCities");
         selectedCityText = selectedCity.options[selectedCity.selectedIndex].text;
-        localStorage.setItem("newSaloonCity", selectedCityText);
+        localStorage.setItem("saloonCity", selectedCityText);
         console.log(selectedCityText);
       });
     console.log(selectedProvinceText)
@@ -698,11 +698,11 @@ let passwordIsValid = false;
 let provinceIsValid = false;
 let cityIsValid = false;
 
-document.getElementById("newSaloonName").addEventListener('input', validateName);
+document.getElementById("saloonName").addEventListener('input', validateName);
 
 function validateName()
 {
-  if (document.getElementById("newSaloonName").value != "")
+  if (document.getElementById("saloonName").value != "")
   {
     document.getElementById("required1").classList.add("d-none");
     document.getElementById("required11").classList.remove("d-none");
@@ -962,7 +962,7 @@ function validateJazanCities()
 $("#createAccount").click(function(){
   var email = $("#email").val();
   var password = $("#password").val();
-  var newSaloonName = $("#newSaloonName").val();
+  var newSaloonName = $("#saloonName").val();
 
   var newSaloonCity = selectedCityText;
 console.log(newSaloonProvince+", "+newSaloonCity+", "+newSaloonName);
@@ -972,6 +972,7 @@ newSaloonProvince != "" && provinceIsValid && newSaloonCity != "" && cityIsValid
     firebase.auth().createUserWithEmailAndPassword(email, password)
     .then((userCredential) => {
       // Signed in
+      localStorage.setItem("isNewUser", "true");
       var user = userCredential.user;
       console.log("signed up successfully...");
       })
