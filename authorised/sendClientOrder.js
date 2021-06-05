@@ -2,7 +2,7 @@
 function readyForClientOrder()
 {
 
-  console.log("inside 'public' sendClientOrder.js");
+  console.log("inside 'authorised' sendClientOrder.js");
 
 // Unique ID Generator...
 function uuidv4() {
@@ -16,6 +16,7 @@ let checkBoxesCollection = [];
 let clientRequestedServices = [];
 let clientName = "";
 let clientPhone = "";
+let clientBookingDateAndTime = "";
 // let clients = "";
 let barberTarget = ""
 let clientOrder ={};
@@ -36,23 +37,45 @@ for(i=1;i<=checkBoxesCollection.length;i++)
     let label = "#label"+(this.id);
     if (this.checked)
       {
-        clientRequestedServices.push(document.querySelector(label).textContent);
+        clientRequestedServices.push(document.querySelector(label).textContent+" ");
         console.log(document.querySelector(label).textContent+"  is added to array");
         console.log(clientRequestedServices+" ARE REQUESTED");
       }
     else
       {
-        let indexOfService = clientRequestedServices.indexOf(document.querySelector(label).textContent);
+        let indexOfService = clientRequestedServices.indexOf(document.querySelector(label).textContent+" ");
         clientRequestedServices.splice(indexOfService,1);
         console.log(document.querySelector(label).textContent+"  is removed from array");
         console.log(clientRequestedServices);
       }
   });
 }
-      // name and phone inputs validation code
+      // Date/Time, Name and Phone inputs validation code
 
       var nameIsValid = false;
       var phoneIsValid = false;
+      var DateAndTimeAreValid = false;
+
+      // date/time validation...
+      document.getElementById("datetime-picker").addEventListener('change', function()
+      {
+        clientBookingDateAndTime  = document.getElementById("datetime-picker").value;
+        if (clientBookingDateAndTime != "")
+          {
+            console.log(clientBookingDateAndTime);
+            document.getElementById("required3").classList.add("d-none");
+            document.getElementById("required33").classList.remove("d-none");
+            DateAndTimeAreValid = true;
+          }
+        else
+          {
+            document.getElementById("required3").classList.remove("d-none");
+            document.getElementById("required33").classList.add("d-none");
+            DateAndTimeAreValid = false;
+          }
+      });
+      
+      
 
       // name input validation...
       document.getElementById("nameInput").addEventListener('input', function(){
@@ -105,73 +128,77 @@ for(i=1;i<=checkBoxesCollection.length;i++)
                   }
                   phoneIsValid = false;                  
                 }
-    
       });
-document.querySelector("#bookingButton").addEventListener("click", function()
-  {
-          
-    if (nameIsValid && phoneIsValid)
+
+  document.querySelector("#bookingButton").addEventListener("click", function()
     {
-      let clientID = uuidv4();
-
-      console.log("name and phone are valid...");
-      clientName = document.querySelector("#nameInput").value;
-      console.log("name: "+clientName);
-      clientPhone = document.querySelector("#phoneInput").value;
-      console.log("phone: "+clientPhone);
-      clientOrder ={clientID:clientID, saloonID:barberID, clientName:clientName, clientPhone:clientPhone, clientRequestedServices:clientRequestedServices};
-      console.log(clientOrder);
-
-      
-      let barberProfile = {};
-
-      let key = clientID;
-      let newClient = {};
-      newClient[key]= clientOrder;
-      let clients = {clients:newClient};
-
-      // var dbRef = db.collection('saloons').doc('Saloon Profiles').set({
-      //   [barberID] : clients
-      // }, { merge: true });
-      var clientRef = db.collection('clients').doc(barberID).set({
-        [clientID] : clientOrder
-      }, { merge: true });
-
-      // Alert Message Code
-      // Swal.fire(
-      //   'تم الحجز بنجاح!',
-      //   '',
-      //   'success'
-      // )
-      Swal.fire({
-        position: 'middle',
-        icon: 'success',
-        title: 'تم الحجز بنجاح',
-        showConfirmButton: false,
-        timer: 1800
-      })
-
-      setTimeout(function(){window.location.replace("home.html")}, 1800);
-      
-      // var setWithMerge = cityRef.set({
-      //     capital: true
-      // }, { merge: true });
-    }
- else
-    {
-      console.log("name and/or phone are NOT VALID!");
-
-      if (!nameIsValid)
+      if (nameIsValid && phoneIsValid && DateAndTimeAreValid)
       {
-        document.getElementById("required1").classList.remove("d-none");
-      }
-      if (!phoneIsValid)
-      {
-        document.getElementById("required2").classList.remove("d-none");
-        document.getElementById("required222").classList.add("d-none");
+        let clientID = uuidv4();
 
+        console.log("name and phone are valid...");
+        clientName = document.querySelector("#nameInput").value;
+        console.log("name: "+clientName);
+        clientPhone = document.querySelector("#phoneInput").value;
+        console.log("phone: "+clientPhone);
+        clientBookingDateAndTime = document.getElementById("datetime-picker").value;
+        clientOrder ={clientID:clientID, saloonID:barberID, clientName:clientName, clientPhone:clientPhone, clientBookingDateAndTime:clientBookingDateAndTime, clientRequestedServices:clientRequestedServices};
+        console.log(clientOrder);
+
+        
+        let barberProfile = {};
+
+        let key = clientID;
+        let newClient = {};
+        newClient[key]= clientOrder;
+        let clients = {clients:newClient};
+
+        // var dbRef = db.collection('saloons').doc('Saloon Profiles').set({
+        //   [barberID] : clients
+        // }, { merge: true });
+        var clientRef = db.collection('clients').doc(barberID).set({
+          [clientID] : clientOrder
+        }, { merge: true });
+
+        // Alert Message Code
+        // Swal.fire(
+        //   'تم الحجز بنجاح!',
+        //   '',
+        //   'success'
+        // )
+        Swal.fire({
+          position: 'middle',
+          icon: 'success',
+          title: 'تم الحجز بنجاح',
+          showConfirmButton: false,
+          timer: 1800
+        })
+
+        setTimeout(function(){window.location.replace("home.html")}, 1800);
+        
+        // var setWithMerge = cityRef.set({
+        //     capital: true
+        // }, { merge: true });
       }
-    }
+    else
+      {
+        if (!DateAndTimeAreValid)
+        {
+          document.getElementById("required3").classList.remove("d-none");
+          console.log("date/time are NOT VALID!");
+        }
+        if (!nameIsValid)
+        {
+          document.getElementById("required1").classList.remove("d-none");
+          console.log("name is NOT VALID!");
+        }
+        if (!phoneIsValid)
+        {
+          document.getElementById("required2").classList.remove("d-none");
+          document.getElementById("required222").classList.add("d-none");
+          console.log("phone is NOT VALID!");
+        }
+      }
   }
 );
 

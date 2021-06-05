@@ -97,15 +97,17 @@
                           console.log(clientID);
                           let saloonID = data[key]["saloonID"];
                           let clientName = data[key]["clientName"];
+                          let clientBookingDateAndTime = data[key]["clientBookingDateAndTime"];
                           let clientPhone =  data[key]["clientPhone"];
                           let clientBookedServices = data[key]["clientRequestedServices"];
   
                           console.log(saloonID);
                           console.log(clientName);
+                          console.log(clientBookingDateAndTime);
                           console.log(clientPhone);
                           console.log(clientBookedServices);
                           console.log(clientID);
-                          addNewClient(clientName, clientPhone, clientBookedServices, clientID);
+                          addNewClient(clientName, clientBookingDateAndTime, clientPhone, clientBookedServices, clientID);
                           console.log(data[key]);
                         }
                        
@@ -118,7 +120,7 @@
             });
             ////////////////////// End of Real-time database listener ///////////////////////
   
-function addNewClient(clientName, clientPhone, clientBookedServices, clientID)
+function addNewClient(clientName, clientBookingDateAndTime, clientPhone, clientBookedServices, clientID)
 {
   loader.classList.add("hidden");
   loader.classList.add("d-none");
@@ -153,7 +155,7 @@ function addNewClient(clientName, clientPhone, clientBookedServices, clientID)
       td1.innerText =""+clientName;
       td2.innerText = ""+clientPhone;
       td3.innerText = ""+clientBookedServices;
-      td4.innerText = ""; // Time and date cell
+      td4.innerText = ""+clientBookingDateAndTime;
       td5.style.boxShadow  = "none";
       td5.style.width = "1%";
       td5.style.padding = "0";
