@@ -397,26 +397,23 @@
 <script type="text/javascript">
   firebase.auth().onAuthStateChanged((user) => {
     if (user) {
-      let isNewUser = localStorage.getItem("isNewUser");
       // User is signed in, see docs for a list of available properties
       // https://firebase.google.com/docs/reference/js/firebase.User
+      var userType = localStorage.getItem("userType");
+
       // if (firebase.auth().currentUser.metadata.creationTime === firebase.auth().currentUser.metadata.lastSignInTime)
-      if (isNewUser=="true") {
-        console.log("////// " + "new user? "+ isNewUser + " //////");
-        localStorage.setItem("isNewUser", "false");
+      if (userType == "newUser") {
+        console.log("////// " + userType + " //////");
 
         let newSaloon = {}
-        let newSaloonName = localStorage.getItem("saloonName");
-        console.log("salon name: "+newSaloonName);
-        let newSalonProfileImage = localStorage.getItem("saloonProfileImage");
-
-        // let newSalonImageProfile  = "images/barberAvatar.png";
+        let newSaloonName = localStorage.getItem("newSaloonName");
+        let newSalonImageProfile  = "images/barberAvatar.png";
         // firebase.storage().ref('users/' + barberID + '/profile.jpg').getDownloadURL().then(imgUrl =>{
         //   img.src = imgUrl;
         //    });
-        let newSaloonEmail = localStorage.getItem("saloonEmail");
-        let newSaloonProvince = localStorage.getItem("saloonProvince");
-        let newSaloonCity = localStorage.getItem("saloonCity");
+        let newSaloonEmail = localStorage.getItem("newSaloonEmail");
+        let newSaloonProvince = localStorage.getItem("newSaloonProvince");
+        let newSaloonCity = localStorage.getItem("newSaloonCity");
         // let salonProfileImage = firebase.storage().ref('users/' + firebase.auth().currentUser.uid + '/profile.jpg').getDownloadURL().then(imgUrl =>{
         //     document.getElementById("salonProfileImage").src = imgUrl;
         // });
@@ -439,7 +436,7 @@
           document.getElementById("salonCity").innerText = newSaloonCity;
 
           // Add a new user/saloon to database
-          newSaloonProfile = { saloonID: newSaloonID, saloonName: newSaloonName, salonProfileImage: newSalonProfileImage, saloonEmail: newSaloonEmail, saloonProvince: newSaloonProvince, saloonCity: newSaloonCity, clients: { "saloonID": newSaloonID } };
+          newSaloonProfile = { saloonID: newSaloonID, saloonName: newSaloonName, salonProfileImage: newSalonImageProfile, saloonEmail: newSaloonEmail, saloonProvince: newSaloonProvince, saloonCity: newSaloonCity, clients: { "saloonID": newSaloonID } };
           newSaloon[key] = newSaloonProfile;
           db.collection('saloons').doc('Saloon Profiles').set(newSaloon, { merge: true }).then(() => {
             console.log("Saloon added to database successfully written!");
@@ -454,7 +451,7 @@
       else {
         // for current saloons log in
     
-        console.log("////// " + "new user? "+ isNewUser + " //////");
+        console.log("////// " + userType + " //////");
 
         let saloonName = localStorage.getItem("saloonName");
         let saloonEmail = localStorage.getItem("saloonEmail");
@@ -465,9 +462,9 @@
         let saloonClients = localStorage.getItem("saloonClients");
         let servicesIsEmpty = localStorage.getItem("servicesIsEmpty");
         let clientsIsEmpty = localStorage.getItem("clientsIsEmpty");
-        let salonProfileImageSrc = localStorage.getItem("saloonProfileImage");
-        
-        document.getElementById("salonProfileImage").src = salonProfileImageSrc;
+        let salonProfileImage = firebase.storage().ref('users/' + firebase.auth().currentUser.uid + '/profile.jpg').getDownloadURL().then(imgUrl =>{
+            document.getElementById("salonProfileImage").src = imgUrl;
+        });
 
         //services
         let parsedSaloonServices = []
@@ -501,7 +498,7 @@
         document.getElementById("salonProvince").innerText = saloonProvince;
         document.getElementById("salonCity").innerText = saloonCity;
 
-        console.log(saloonName + ", email is:" + saloonEmail + ", " + saloonID + ", " + saloonProvince + ", " + saloonCity+", "+salonProfileImageSrc)
+        console.log(saloonName + ", email is:" + saloonEmail + ", " + saloonID + ", " + saloonProvince + ", " + saloonCity)
 
       }
 
