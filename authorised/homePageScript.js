@@ -1,9 +1,9 @@
 
 let selectedProvinceSalons = [];
 
-document.getElementById("dashboardButton").addEventListener("click", function(){
-window.location.assign("../user.html");
-});
+// document.getElementById("dashboardButton").addEventListener("click", function(){
+// window.location.assign("../user.html");
+// });
 document.getElementById("easternCities").classList.remove("d-none")
 document.getElementById("easternCities").disabled = true;
 
